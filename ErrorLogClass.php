@@ -1,9 +1,15 @@
 <?php
 	class ErrorLog{
-		public $path;
+		private $path;
 
-		public function __construct($path=""){
-			$this->path = $path;
+		public function __construct(){
+			if(file_exists('log/log.txt')){
+				$this->path = "log/log.txt";
+			}else{
+                            mkdir('log');
+			}
+			
+			$this->path = "log/log.txt";  
 
 		}
 
